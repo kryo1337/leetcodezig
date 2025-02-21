@@ -1,2 +1,5 @@
 # leetcodezig
-leetcode problem solved in zig
+
+leetcode problems solved in zig
+
+to run file 'zig test <filename>'
