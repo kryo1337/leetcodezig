@@ -73,8 +73,7 @@ test "valid sudoku - valid board" {
         "...419..5".*,
         "....8..79".*,
     };
-    const acc = std.heap.page_allocator;
-    const result = isValidSudoku(acc, board);
+    const result = isValidSudoku(std.testing.allocator, board);
     std.debug.print("Test 'valid board': result={}\n", .{result});
     try std.testing.expect(result == true);
 }
@@ -91,8 +90,7 @@ test "valid sudoku - invalid row" {
         "...419..5".*,
         "5...8..79".*,
     };
-    const acc = std.heap.page_allocator;
-    const result = isValidSudoku(acc, board);
+    const result = isValidSudoku(std.testing.allocator, board);
     std.debug.print("Test 'invalid row': result={}\n", .{result});
     try std.testing.expect(result == false);
 }
@@ -109,8 +107,7 @@ test "valid sudoku - invalid column" {
         "...419..5".*,
         "....8..79".*,
     };
-    const acc = std.heap.page_allocator;
-    const result = isValidSudoku(acc, board);
+    const result = isValidSudoku(std.testing.allocator, board);
     std.debug.print("Test 'invalid column': result={}\n", .{result});
     try std.testing.expect(result == false);
 }
@@ -127,8 +124,7 @@ test "valid sudoku - invalid box" {
         "...419..5".*,
         "....8..79".*,
     };
-    const acc = std.heap.page_allocator;
-    const result = isValidSudoku(acc, board);
+    const result = isValidSudoku(std.testing.allocator, board);
     std.debug.print("Test 'invalid box': result={}\n", .{result});
     try std.testing.expect(result == false);
 }
